@@ -69,6 +69,13 @@ namespace Demo
             ////    Console.WriteLine("Not Equal");
 
             #endregion
+            #region Equality & GetHashCode()
+            //Employee employee01 = new Employee(10, 1000, "Abdol");
+            //Employee employee02 = new Employee(10, 1000, "Abdol");
+            //Console.WriteLine(employee01.Equals(employee02));
+            //Console.WriteLine(employee01.GetHashCode());
+            //Console.WriteLine(employee02.GetHashCode());
+            #endregion
         }
     }
 }

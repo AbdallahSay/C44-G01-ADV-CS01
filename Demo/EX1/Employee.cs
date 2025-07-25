@@ -1,6 +1,6 @@
 ﻿namespace Demo.EX1
 {
-    internal struct Employee
+    internal class Employee
     {
         #region Prop
         public int Id { get; set; }
@@ -21,6 +21,31 @@
         {
             return $"Id: {Id}, Salary: {Salary}, Name: {Name}";
         }
+        //public override bool Equals(object? obj)
+        //{
+        //    Employee? employee = (Employee?)obj;
+        //    if (employee is not null)
+        //    {
+        //        return Id == employee.Id &&
+        //               Salary == employee.Salary &&
+        //               Name == employee.Name;
+        //    }
+        //    return false;
+        //}
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(Id, Salary, Name);
+        //}
+        //public override bool Equals(object? obj)
+        //{
+        //    if (obj is Employee employee)
+        //    {
+        //        return Id == employee.Id &&
+        //               Salary == employee.Salary &&
+        //               Name == employee.Name;
+        //    }
+        //    return false;
+        //}
         #endregion
         #region Operator Overloading
         public static bool operator ==(Employee left , Employee right)
@@ -38,7 +63,10 @@
             return !(left.Equals(right));
         }
 
+       
+
         #endregion
+
 
     }
 }
