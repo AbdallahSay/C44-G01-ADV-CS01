@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.EX1
 {
-    internal static class Helper<T>
+    internal static class Helper
     {
         #region Swap - Non Generic 
         //public static void Swap (ref object x , ref  object y)
@@ -41,11 +41,41 @@ namespace Demo.EX1
         //}
         #endregion
         #region Swap - Generic
-        public static void Swap (ref T x , ref T y)
+        public static void Swap<T> (ref T x , ref T y)
         {
             T temp = x;
             x = y;
             y = temp;
+        }
+
+        #endregion
+        #region Linear Search - Non Generic
+        //public static int LinearSearch(ref int[] arr ,  int target)
+        //{
+        //    if(arr is not null && arr.Length > 0)
+        //        for(int i = 0; i < arr.Length; i++)
+        //        {
+        //            if (arr[i] == target)
+        //                return i;
+        //        }
+        //    return -1;
+        //}
+
+
+
+
+
+        #endregion
+        #region Linear Search - Generic
+        public static int LinearSearch<T>( T[] points  , T target)
+        {
+            if(points is not null && points.Length > 0 && target is not null)
+                for(int i = 0; i < points.Length; i++)
+                {
+                    if (target.Equals(points[i])) // User defined Struct can not use == operator
+                        return i;
+                }
+            return -1;
         }
         #endregion
     }
