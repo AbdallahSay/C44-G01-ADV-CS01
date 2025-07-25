@@ -1,4 +1,5 @@
 ﻿using Demo.EX1;
+using Demo.EX2;
 
 namespace Demo
 {
@@ -84,6 +85,22 @@ namespace Demo
             //int? num = obj as int?;
             //num = obj is int i ? i : 0;
             //Console.WriteLine(num);
+
+            #endregion
+            #region IEquatable 
+            //Employee[] employees =
+            //{
+            //    new Employee (10 , 1000 , "Abdol"),
+            //    new Employee (12 , 4000 , "Abdol"),
+            //    new Employee (10 , 1040 , "Abdol")
+            //};
+            //Employee employee = new Employee(12, 1000, "Abdol");
+            //int result;
+            ////result = Helper<Employee>.LinearSearch(employees , employee , new EmployeeNameEqualityComparer() );
+            //result = Helper<Employee>.LinearSearch(employees , employee , new EmployeeSalaryEqualityComparer() );
+            //Console.WriteLine($"Index Of target value = {result}");
+
+
 
             #endregion
 

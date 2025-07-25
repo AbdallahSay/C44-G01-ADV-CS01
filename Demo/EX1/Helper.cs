@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Demo.EX1
+﻿namespace Demo.EX1
 {
-    internal static class Helper
+    internal static class Helper<T> where T : IEquatable<T>
     {
         #region Swap - Non Generic 
         //public static void Swap (ref object x , ref  object y)
@@ -67,7 +61,17 @@ namespace Demo.EX1
 
         #endregion
         #region Linear Search - Generic
-        public static int LinearSearch<T>( T[] points  , T target)
+        public static int LinearSearch(T[] points, T target)
+        {
+            if (points is not null && points.Length > 0 && target is not null)
+                for (int i = 0; i < points.Length; i++)
+                {
+                    if (target.Equals(points[i])) // User defined Struct can not use == operator
+                        return i;
+                }
+            return -1;
+        }
+        public static int LinearSearch(T[] points  , T target , IEqualityComparer<T> comparer)
         {
             if(points is not null && points.Length > 0 && target is not null)
                 for(int i = 0; i < points.Length; i++)

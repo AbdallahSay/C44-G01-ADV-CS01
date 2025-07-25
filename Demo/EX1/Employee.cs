@@ -1,6 +1,6 @@
 ﻿namespace Demo.EX1
 {
-    internal class Employee
+    internal class Employee: IEquatable<Employee>
     {
         #region Prop
         public int Id { get; set; }
@@ -39,55 +39,55 @@
 
         //public override bool Equals(object? obj)
         //{
-            //    #region Explicit Casting 
+        //    #region Explicit Casting 
 
-            //    //    Employee? employee = (Employee?)obj;
-            //    //    if (employee is not null)
-            //    //    {
-            //    //        return Id == employee.Id &&
-            //    //               Salary == employee.Salary &&
-            //    //               Name == employee.Name;
-            //    //    }
-            //    //    return false; 
-            //    #endregion
-            //    #region Is Operator
-            //    //if(obj is null) return false;
-            //    //else if (obj is Employee employee)
-            //    //{
-            //    //    return Id == employee.Id &&
-            //    //           Salary == employee.Salary &&
-            //    //           Name == employee.Name;
-            //    //}
-            //    //return false;
-            //    #endregion
-            //    #region As Operator
-            //    Employee? employee = obj as Employee;
-            //    if(employee is null ) return false;
-            //    return Id == employee.Id &&
-            //           Salary == employee.Salary &&
-            //           Name == employee.Name;
+        //    //    Employee? employee = (Employee?)obj;
+        //    //    if (employee is not null)
+        //    //    {
+        //    //        return Id == employee.Id &&
+        //    //               Salary == employee.Salary &&
+        //    //               Name == employee.Name;
+        //    //    }
+        //    //    return false; 
+        //    #endregion
+        //    #region Is Operator
+        //    //if(obj is null) return false;
+        //    //else if (obj is Employee employee)
+        //    //{
+        //    //    return Id == employee.Id &&
+        //    //           Salary == employee.Salary &&
+        //    //           Name == employee.Name;
+        //    //}
+        //    //return false;
+        //    #endregion
+        //    #region As Operator
+        //    Employee? employee = obj as Employee;
+        //    if(employee is null ) return false;
+        //    return Id == employee.Id &&
+        //           Salary == employee.Salary &&
+        //           Name == employee.Name;
 
-            //    #endregion
-            //Prop Pattern Matching
-            //if (obj is Employee { Id : int id , Name : string name , Salary : decimal salary})
-            //    return this.Id == id &&
-            //           this.Salary == salary &&
-            //           this.Name == name;
+        //    #endregion
+        //Prop Pattern Matching
+        //if (obj is Employee { Id : int id , Name : string name , Salary : decimal salary})
+        //    return this.Id == id &&
+        //           this.Salary == salary &&
+        //           this.Name == name;
         //}
-        //public override int GetHashCode()
-        //{
-        //    return HashCode.Combine(Id, Salary, Name);
-        //}
-        //public override bool Equals(object? obj)
-        //{
-        //    if (obj is Employee employee)
-        //    {
-        //        return Id == employee.Id &&
-        //               Salary == employee.Salary &&
-        //               Name == employee.Name;
-        //    }
-        //    return false;
-        //}
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Salary, Name);
+        }
+        public override bool Equals(object? obj)
+        {
+            if (obj is Employee employee)
+            {
+                return Id == employee.Id &&
+                       Salary == employee.Salary &&
+                       Name == employee.Name;
+            }
+            return false;
+        }
         #endregion
 
         #region Operator Overloading
@@ -106,8 +106,21 @@
             return !(left.Equals(right));
         }
 
-       
 
+
+
+
+
+        #endregion
+
+        #region IEquatable
+        public bool Equals(Employee? other)
+        {
+            return other is not null &&
+                    Id == other.Id &&
+                    Salary == other.Salary &&
+                    Name == other.Name;
+        }
         #endregion
 
 
