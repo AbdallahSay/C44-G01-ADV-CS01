@@ -76,6 +76,17 @@ namespace Demo
             //Console.WriteLine(employee01.GetHashCode());
             //Console.WriteLine(employee02.GetHashCode());
             #endregion
+            #region Is & As
+            //Employee employee01 = null;
+            //Employee employee02 = new Employee(10, 1000, "Abdol");
+            //Console.WriteLine(employee01?.Equals(employee02));
+            //object obj = 10;
+            //int? num = obj as int?;
+            //num = obj is int i ? i : 0;
+            //Console.WriteLine(num);
+
+            #endregion
+
         }
     }
 }
