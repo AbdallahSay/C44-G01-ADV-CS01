@@ -1,5 +1,6 @@
 ﻿using Assignment.Q1;
 using Assignment.Q1.Q2;
+using Assignment.Q3;
 using System.Collections;
 
 namespace Assignment
@@ -22,6 +23,16 @@ namespace Assignment
             //Console.WriteLine("After Reversal:");
             //foreach (var item in items)
             //    Console.Write(item + " ");
+
+            #endregion
+            #region Q3
+            //List<int> inputList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            //List<int> evens = EvenNumber.GetEvenNumbers(inputList);
+
+            //Console.WriteLine("Even Numbers:");
+            //foreach (int num in evens)
+            //    Console.Write(num + " ");
 
             #endregion
         }
