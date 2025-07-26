@@ -1,6 +1,7 @@
 ﻿using Assignment.Q1;
 using Assignment.Q1.Q2;
 using Assignment.Q3;
+using Assignment.Q5;
 using System.Collections;
 
 namespace Assignment
@@ -35,10 +36,22 @@ namespace Assignment
             //    Console.Write(num + " ");
 
             #endregion
+            #region Q5
+           
+        
+            //string input = "Hello World";
+            //int index = StringHelper.FirstUniqueCharIndex(input);
 
-        }
+            //if (index != -1)
+            //    Console.WriteLine($"First non-repeated character: '{input[index]}' at index {index}");
+            //else
+            //    Console.WriteLine("No unique character found in the string.");
+        
 
+        #endregion
     }
+
+}
    
 
 
