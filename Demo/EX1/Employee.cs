@@ -1,6 +1,6 @@
 ﻿namespace Demo.EX1
 {
-    internal class Employee: IEquatable<Employee>
+    internal class Employee: IEquatable<Employee> , IComparable<Employee> , IComparer<Employee>
     {
         #region Prop
         public int Id { get; set; }
@@ -120,6 +120,23 @@
                     Id == other.Id &&
                     Salary == other.Salary &&
                     Name == other.Name;
+        }
+
+        public int CompareTo(Employee? other) // Return int
+
+        {
+            if(other is null) return 1; // this is greater than null
+            return this.Salary.CompareTo(other.Salary);
+
+        }
+
+       
+
+        public int Compare(Employee? x, Employee? y)
+        {
+            if (x is null && y is null) return 0; // both are null
+            return string.Compare(x?.Name, y.Name);// Compare by Name
+
         }
         #endregion
 

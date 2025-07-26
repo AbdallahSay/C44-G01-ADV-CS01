@@ -1,5 +1,6 @@
 ﻿using Demo.EX1;
 using Demo.EX2;
+using Demo.EX3;
 
 namespace Demo
 {
@@ -102,6 +103,27 @@ namespace Demo
 
 
 
+            #endregion
+            #region Bubble Sort
+            //int[] arr = { 5 , 3 , 7, 2, 1, 9 , 8 , 4};
+            //Helper<int>.BaubbleSort(ref arr);
+            //foreach (int item in arr)
+            //{
+            //    Console.Write(item + " ");
+            //}
+
+           // Employee[] employees =
+           // {
+           //     new Employee (10 , 1000 , "Abdol"),
+           //     new Employee (12 , 4000 , "Mo"),
+           //     new Employee (19 , 1040 , "Gana"),
+           //     new Employee (13 , 2000 , "Afaf")
+           // };
+           //Helper<Employee>.BaubbleSort(ref employees , new EmployeeNameComparer());
+           // foreach (Employee emp in employees)
+           // {
+           //     Console.WriteLine(emp);
+           // }
             #endregion
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace Demo.EX1
 {
-    internal static class Helper<T> where T : IEquatable<T>
+    internal static class Helper<T> where T : IEquatable<T> , IComparable<T> , IComparer<T>
     {
         #region Swap - Non Generic 
         //public static void Swap (ref object x , ref  object y)
@@ -80,6 +80,81 @@
                         return i;
                 }
             return -1;
+        }
+        #endregion
+        #region Bubble Sore - Non Generic
+        //public static void BubbleSort(ref int[] arr)
+        //{
+        //    if (arr is not null && arr.Length > 0)
+        //        for (int i = 0; i < arr.Length - 1; i++)
+        //        {
+        //            bool swapped = false;
+        //            int LastSwapIndex = 0;
+        //            for (int j = 0; j < arr.Length - i - 1; j++)
+        //            {
+        //                if (arr[j] > arr[j + 1])
+        //                    Helper<int>.Swap(ref arr[j], ref arr[j + 1]);
+        //                swapped = true;
+        //                LastSwapIndex = j; // last index must be largest value
+        //            }
+        //        }
+        //}
+        #endregion
+        #region Bubble sotr - Generic
+        public static void BaubbleSort(ref T[] arr)
+        {
+            if(arr is not null && arr.Length > 0)
+            {
+               
+                for(int i = 0; i < arr.Length - 1; i++)
+                {
+                    bool swapped = false;
+                    int LastSwapIndex = 0;
+                    for(int j = 0; j < arr.Length - 1 - i; j++)
+                    {
+                        if (arr[j].CompareTo(arr[j + 1]) > 0)
+                        { // T must implement IComparable<T>
+                            Helper<T>.Swap(ref arr[j], ref arr[j + 1]);
+                            swapped = true;
+                            LastSwapIndex = j; // last index must be largest value
+                        }
+                    }
+                    if (!swapped) // No swap means array is sorted
+                        break;
+                   
+
+                }
+
+            }
+                   
+        }
+        public static void BaubbleSort(ref T[] arr , IComparer<T> comparer)
+        {
+            if(arr is not null && arr.Length > 0)
+            {
+               
+                for(int i = 0; i < arr.Length - 1; i++)
+                {
+                    bool swapped = false;
+                    int LastSwapIndex = 0;
+                    for(int j = 0; j < arr.Length - 1 - i; j++)
+                    {
+                        //if (arr[j].CompareTo(arr[j + 1]) > 0)
+                        if (comparer.Compare(arr[j] ,arr[j + 1]) > 0)
+                        { // T must implement IComparable<T>
+                            Helper<T>.Swap(ref arr[j], ref arr[j + 1]);
+                            swapped = true;
+                            LastSwapIndex = j; // last index must be largest value
+                        }
+                    }
+                    if (!swapped) // No swap means array is sorted
+                        break;
+                   
+
+                }
+
+            }
+                   
         }
         #endregion
     }
